@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.imgur.com/KWOcXzi.png">
 <meta property="og:image" content="https://i.imgur.com/NUhdu2U.png">
 <meta property="og:image" content="https://i.imgur.com/MPx4FhJ.png">
-<meta property="og:updated_time" content="2018-03-17T10:17:19.399Z">
+<meta property="og:updated_time" content="2018-03-18T03:28:23.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Hexo &amp; Github 搭建个人博客">
 <meta name="twitter:description" content="一、环境配置1、Git 首先安装 Git，安装包地址在这里。安装过程中有一些设置，我本人不习惯鼠标右键出现太多的选项，所以”Git Bash Here”,”Git GUI Here”就按照默认的不勾选。安装完成后，最好把添加 Git 的环境变量，虽然我也不知道有没有用，刚开始出现了很多错误，所以我把这一步也做了。打开 Git Bash，默认情况下字体很小，可以通过”CTRL+滚轮“ 调整字体大小。">
@@ -396,6 +396,13 @@
 <p>每次添加完新的博客或者做其他的修改后，都要重新部署生成，即执行 hexo d -g 命令。</p>
 <p>以上就是基础版本的使用 Hexo + Github 搭建个人博客的教程，后续可能会有进阶的教程，如改变主题，以及更多的设置。</p>
 <p>Appendix:<br>这篇简易版本的教程参考了网上许多的方法，尤其是这篇博客：<br><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">https://www.cnblogs.com/fengxiongZz/p/7707219.html</a></p>
+<h3 id="Take-away"><a href="#Take-away" class="headerlink" title="Take-away"></a>Take-away</h3><p>经过一些设置后，以后每次发博文的流程如下:</p>
+<ol>
+<li>打开 CMD 并进入 blog 目录，执行 <code>hexo new post &quot;post-name&quot;</code></li>
+<li>进入 source/posts_/ 打开对应的 md 文件，文件头中添加 <strong>tags</strong> 标签和 <strong>categories</strong> 分类，并编辑内容</li>
+<li>在 CMD 中执行<code>hexo d -g</code> 完成部署和生成</li>
+<li>进入网页查看或者使用 <code>hexo s</code> 在 localhost:4000 中查看</li>
+</ol>
 
       
     </div>
@@ -519,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -530,7 +537,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -541,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -602,7 +609,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、环境配置"><span class="nav-number">1.</span> <span class="nav-text">一、环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">二、搭建步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、环境配置"><span class="nav-number">1.</span> <span class="nav-text">一、环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">二、搭建步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-away"><span class="nav-number">3.</span> <span class="nav-text">Take-away</span></a></li></ol></div>
             
 
           </div>
