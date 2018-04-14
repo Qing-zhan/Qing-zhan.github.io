@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git,Github,Version Control," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to my blog! This is my very first post. Markdown Tutorial1. StartA little different from raw markdown syntax, in the very beginning of each post file (.md) in hexo, it starts like this: 123456">
+<meta name="description" content="1. SSH key generation在Git中，本地版本库与远程的Github版本库的连接通过SSH加密协议。主要的步骤就是在本地生成SSH Key，然后添加到Github的可信任列表中，此步骤在网上可以很容易找到，故不再赘述。 2. Remote Connection with Github这里有两种连接方式：1. 本地没有版本库，直接与Github上的版本库连接； 2. 本地已经有版本库">
+<meta name="keywords" content="Git,Github,Version Control">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="http://yoursite.com/2018/03/17/hello-world/index.html">
+<meta property="og:title" content="Git Tutorial">
+<meta property="og:url" content="http://yoursite.com/2018/04/14/Git-Tutorial/index.html">
 <meta property="og:site_name" content="想要变酷的詹晴天">
-<meta property="og:description" content="Welcome to my blog! This is my very first post. Markdown Tutorial1. StartA little different from raw markdown syntax, in the very beginning of each post file (.md) in hexo, it starts like this: 123456">
+<meta property="og:description" content="1. SSH key generation在Git中，本地版本库与远程的Github版本库的连接通过SSH加密协议。主要的步骤就是在本地生成SSH Key，然后添加到Github的可信任列表中，此步骤在网上可以很容易找到，故不再赘述。 2. Remote Connection with Github这里有两种连接方式：1. 本地没有版本库，直接与Github上的版本库连接； 2. 本地已经有版本库">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-17T10:24:36.206Z">
+<meta property="og:updated_time" content="2018-04-14T11:28:27.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown">
-<meta name="twitter:description" content="Welcome to my blog! This is my very first post. Markdown Tutorial1. StartA little different from raw markdown syntax, in the very beginning of each post file (.md) in hexo, it starts like this: 123456">
+<meta name="twitter:title" content="Git Tutorial">
+<meta name="twitter:description" content="1. SSH key generation在Git中，本地版本库与远程的Github版本库的连接通过SSH加密协议。主要的步骤就是在本地生成SSH Key，然后添加到Github的可信任列表中，此步骤在网上可以很容易找到，故不再赘述。 2. Remote Connection with Github这里有两种连接方式：1. 本地没有版本库，直接与Github上的版本库连接； 2. 本地已经有版本库">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/17/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/14/Git-Tutorial/"/>
 
 
 
 
 
-  <title>Markdown | 想要变酷的詹晴天</title>
+  <title>Git Tutorial | 想要变酷的詹晴天</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/Git-Tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈富强">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Markdown</h1>
+          <h1 class="post-title" itemprop="name headline">Git Tutorial</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T13:18:46+08:00">
-                2018-03-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-14T18:41:18+08:00">
+                2018-04-14
               </time>
             
 
@@ -301,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,30 +352,29 @@
       
 
       
-        <p>Welcome to my blog! This is my very first post.</p>
-<h1 id="Markdown-Tutorial"><a href="#Markdown-Tutorial" class="headerlink" title="Markdown Tutorial"></a>Markdown Tutorial</h1><h3 id="1-Start"><a href="#1-Start" class="headerlink" title="1. Start"></a>1. <strong>Start</strong></h3><p>A little different from raw markdown syntax, in the very beginning of each post file (.md) in hexo, it starts like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World               // Title of this post</span><br><span class="line">date: 2018-03-17 13:44:11        // To be displayed under the title is the building date</span><br><span class="line">tags: [hexo,github,npm]          // Here you can assign several tags for this post</span><br><span class="line">categories: Software             // Categories of this post</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>Note that, the code above is not in the syntax of markdown, it’s exclusively recognized by hexo.</p>
-<h3 id="2-Insert-Code-Blocks"><a href="#2-Insert-Code-Blocks" class="headerlink" title="2. Insert Code Blocks"></a>2. <strong>Insert Code Blocks</strong></h3><ul>
-<li>Bash</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Python</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">		<span class="keyword">print</span> i,</span><br></pre></td></tr></table></figure>
-<ul>
-<li>C++</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-Hyper-Link"><a href="#3-Hyper-Link" class="headerlink" title="3. Hyper Link"></a>3. Hyper Link</h3><p>To insert a hyper link, you should write like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In markdown: Please refer to &lt;font color=blue&gt;\[TianjinUniversity\]\(www.tju.edu.cn\)&lt;/font&gt;</span><br></pre></td></tr></table></figure></p>
-<p>and it display like this:</p>
-<p>&emsp;&emsp;Please refer to <a href="tju.edu.cn">TianjinUniversity</a></p>
-<h3 id="4-Whitespace"><a href="#4-Whitespace" class="headerlink" title="4. Whitespace"></a>4. Whitespace</h3><ul>
-<li>space: &amp; n b s p;</li>
-<li>new line: &lt; b r &gt;;<br>Please remove all the spaces ==</li>
-</ul>
-<p><br><br><strong>To be continued</strong></p>
+        <h3 id="1-SSH-key-generation"><a href="#1-SSH-key-generation" class="headerlink" title="1. SSH key generation"></a>1. SSH key generation</h3><p>在Git中，本地版本库与远程的Github版本库的连接通过SSH加密协议。主要的步骤就是在本地生成SSH Key，然后添加到Github的可信任列表中，此步骤在网上可以很容易找到，故不再赘述。</p>
+<h3 id="2-Remote-Connection-with-Github"><a href="#2-Remote-Connection-with-Github" class="headerlink" title="2. Remote Connection with Github"></a>2. Remote Connection with Github</h3><p>这里有两种连接方式：1. 本地没有版本库，直接与Github上的版本库连接； 2. 本地已经有版本库，与远程的Github的版本库合并（Merge）；下面分别针对这两种情况进行说明。</p>
+<h4 id="2-1-本地没有版本库"><a href="#2-1-本地没有版本库" class="headerlink" title="2.1 本地没有版本库"></a>2.1 本地没有版本库</h4><ol>
+<li>首先在Github网站上创建一个新的版本库（如果你没有任何版本库或者你想创建一个新的测试库）；</li>
+<li><p>从Github上克隆项目到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:Qing-zhan/my-leetcode.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在本地版本库中做需要的修改<br>如添加一个README文件，或者添加其他的文件；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch README</span><br><span class="line">git add README</span><br><span class="line">git commit -m <span class="string">"add README"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>值得注意的是，即便是更改文件，也需要 <code>git add README</code>，或者干脆 <code>git add ./*</code> （注意此命令会添加本地所有的文件和文件夹），这一点与 svn 不同；</p>
+<ol>
+<li>推送到远程版本库中<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>此命令是将本地的master分支推送到远程的origin主机的master分支；完整的命令是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u &lt;remote host&gt; &lt;<span class="built_in">local</span> branch&gt;:&lt;remote branch&gt;</span><br></pre></td></tr></table></figure></p>
+<p>表示将本地的分支（local branch）推送到远程主机（remote host）的分支（remote branch），这里可以做一些省略，原因在于只建立了一个分支，并且默认关联，更详细的用法后续会更新；</p>
+<h3 id="2-2-本地已经存在版本库"><a href="#2-2-本地已经存在版本库" class="headerlink" title="2.2 本地已经存在版本库"></a>2.2 本地已经存在版本库</h3><p>如果本地已经存在版本库，那么就不能直接克隆远程库，而是应该把远程库pull到本地；首先需要与远程库连接：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:Qing-zhan/my-leetcode.git</span><br></pre></td></tr></table></figure></p>
+<p>如果想要从远程库中更新本地库，执行 <code>git pull</code>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
+<p>完整的命令是：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;remote host&gt; &lt;remote branch&gt;:&lt;<span class="built_in">local</span> branch&gt;</span><br><span class="line">git pull origin next:master //取回远程origin主机的next分支，并与本地的master分支和兴；</span><br></pre></td></tr></table></figure></p>
+<p>如果遇到错误：<br><code>fatal: refusing to merge unrelated histories</code><br>尝试执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
+<p>上述对Git远程连接Github做了非常简略的介绍，关于合并（Merge）、解决冲突以及其他更高级的使用方法和技巧，我以后也需要慢慢学习然后再更新；</p>
 
       
     </div>
@@ -368,6 +390,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/Version-Control/" rel="tag"># Version Control</a>
+          
+        </div>
+      
 
       
       
@@ -377,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/17/Building-your-own-blog-using-Hexo-and-Github/" rel="next" title="使用 Hexo & Github 搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 使用 Hexo & Github 搭建个人博客
+              <a href="/2018/03/18/关于生活的一点感悟/" rel="next" title="关于生活的一点感悟">
+                <i class="fa fa-chevron-left"></i> 关于生活的一点感悟
               </a>
             
           </div>
@@ -386,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/18/关于生活的一点感悟/" rel="prev" title="关于生活的一点感悟">
-                关于生活的一点感悟 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown-Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Markdown Tutorial</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Start"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. Start</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Insert-Code-Blocks"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Insert Code Blocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Hyper-Link"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. Hyper Link</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Whitespace"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. Whitespace</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SSH-key-generation"><span class="nav-number">1.</span> <span class="nav-text">1. SSH key generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Remote-Connection-with-Github"><span class="nav-number">2.</span> <span class="nav-text">2. Remote Connection with Github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-本地没有版本库"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 本地没有版本库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-本地已经存在版本库"><span class="nav-number">3.</span> <span class="nav-text">2.2 本地已经存在版本库</span></a></li></ol></div>
             
 
           </div>
