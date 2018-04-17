@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="shell,bash," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="If you work under Linux, shell is the most fundamental tool in your toolbox. As a freshman in work and due to the poor knowledge in terms of Linux and shell, I’ll write a simplified tutorial on shell">
+<meta name="keywords" content="shell,bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell Script 0">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/Shell-Script-0/index.html">
+<meta property="og:site_name" content="想要变酷的詹晴天">
+<meta property="og:description" content="If you work under Linux, shell is the most fundamental tool in your toolbox. As a freshman in work and due to the poor knowledge in terms of Linux and shell, I’ll write a simplified tutorial on shell">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-17T08:54:47.759Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell Script 0">
+<meta name="twitter:description" content="If you work under Linux, shell is the most fundamental tool in your toolbox. As a freshman in work and due to the poor knowledge in terms of Linux and shell, I’ll write a simplified tutorial on shell">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/17/Shell-Script-0/"/>
+
+
+
+
+
+  <title>Shell Script 0 | 想要变酷的詹晴天</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">想要变酷的詹晴天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">We read the world wrong and say it deceives us</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/Shell-Script-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈富强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想要变酷的詹晴天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Shell Script 0</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T15:18:56+08:00">
+                2018-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>If you work under Linux, shell is the most fundamental tool in your toolbox. As a freshman in work and due to the poor knowledge in terms of Linux and shell, I’ll write a simplified tutorial on shell script. </p>
+<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="1-Make-shell-work"><a href="#1-Make-shell-work" class="headerlink" title="1. Make shell work"></a>1. Make shell work</h2><p>First off, create a new file suffix with .sh, e.g test.sh using <code>touch test.sh</code> in the terminal. Then add the execute permission of this file by <code>chmod +x test.sh</code>. Now you should notice that the color of this file is light green, which means it’s executable. Add the following line in the head of thif file by vim.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br></pre></td></tr></table></figure>
+<p>The notation <code>#!</code> is called shebang (sharp by # and bang by !). This line enables this script can be directly executed under terminal like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh</span><br></pre></td></tr></table></figure></p>
+<p>You will see a lot of this line in many scripts you download on the Internet, like Shell, Python, etc. Also, if you don’t add shebang notation in the beginning of script, you can also execute the script in a typical manner:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh test.sh</span><br><span class="line">/bin/bash test.sh</span><br></pre></td></tr></table></figure></p>
+<p>Also you should keep in mind is that, the shebang notation must be put in the beginning of the script. </p>
+<h2 id="2-Print-something"><a href="#2-Print-something" class="headerlink" title="2. Print something"></a>2. Print something</h2><p>The first command you should learn is print “Hello World” on your screen, just like you begin to learn any other computer language. In shell, <code>echo</code> is used to print something to the standard output, i.e. your screen.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> Hello World</span><br><span class="line">``` </span><br><span class="line">Put the line above <span class="keyword">in</span> your script, and execute it. Also you can <span class="built_in">print</span> something like this:</span><br><span class="line">```bash</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Hello World'</span></span><br></pre></td></tr></table></figure></p>
+<p>The double quote and single quote here is to wrap the content as a whole parameter to <code>echo</code>. The difference between double quote and single quote will be explained later.</p>
+<h2 id="3-Variables-and-Parameters"><a href="#3-Variables-and-Parameters" class="headerlink" title="3. Variables and Parameters"></a>3. Variables and Parameters</h2><p>Two important concepts is explained, variables and parameters. In shell, variables are stored as strings, even if you can assign variables with string, character literal, or digits. You don’t have to declare or define a variable in shell (While many other language need so). You can just initialize it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">name=apple        <span class="comment"># initialize, Note: no extra spaces aroung =</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span>        <span class="comment"># output: apple</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;name&#125;</span>s     <span class="comment"># output: apples</span></span><br><span class="line">``` </span><br><span class="line">line 1 initialize a variable `name` with content `fqchen`, and when you use a variable, a dollar notation `$` should prefix it. Well, <span class="keyword">in</span> certain circumstances, some literal are directly following the var <span class="keyword">in</span> printing, thus a `&#123;&#125;` can be added to wrap the variable name. </span><br><span class="line">There are some environment variables <span class="built_in">which</span> can be modified, like `<span class="variable">$PATH</span>`, `LD_LIBRARY_PATH`, `SHELL`, etc. It<span class="string">'s a little bit different when setting these variables, some are listed below.</span></span><br><span class="line"><span class="string">```bash</span></span><br><span class="line"><span class="string">bash:</span></span><br><span class="line"><span class="string">export PATH=/home/user/bin:$PATH</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">csh:</span></span><br><span class="line"><span class="string">setenv PATH /home/user/bin/:$PATH</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-Double-quote-amp-Single-quote"><a href="#4-Double-quote-amp-Single-quote" class="headerlink" title="4. Double quote &amp; Single quote"></a>4. Double quote &amp; Single quote</h2><p>Notation <code>$</code> is a build-in notation, when you want to use the <code>$</code> alone, <strong>escape character</strong> <code>\</code> can be used.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name=apple</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span>        <span class="comment"># apple</span></span><br><span class="line"><span class="built_in">echo</span> \<span class="variable">$name</span>       <span class="comment"># $name</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$name</span>"</span>      <span class="comment"># apple</span></span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$name</span>`      <span class="comment"># $name</span></span><br></pre></td></tr></table></figure></p>
+<p>Quoting mechanism allows otherwise special characters, such as whitespace, wildcards, parentheses, and dollar signs to be taken as literal text.<br>In double quote <code>&quot;&quot;</code> (<strong>weak quote</strong>), <code>$name</code> is expanded as a variable. In weak quote, enclosed whitespace and wildcards are taken as literals, but variables and command substitutions are still performed; While in single quote <code>&#39;&#39;</code> (<strong>strong quote</strong>), nothing is expanded, the entire string is taken as literal. This is the main difference between them.</p>
+<h2 id="5-Conditions-amp-Loops-amp-Comparison"><a href="#5-Conditions-amp-Loops-amp-Comparison" class="headerlink" title="5. Conditions &amp; Loops &amp; Comparison"></a>5. Conditions &amp; Loops &amp; Comparison</h2><p>For <code>if</code> conditions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">--------------------</span><br><span class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	commands;</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>Command must suffix with a tab. Conditions are always parenthesed with <code>[]</code>, and a space must exist on both inner sides of the <code>[]</code>;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">number=10</span><br><span class="line"><span class="built_in">echo</span> number</span><br><span class="line"><span class="keyword">if</span> [ number -gt 10 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is greater than 10</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> [ number -lt 10 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is less than 10</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is equal to 10</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-1-Digit-comparison"><a href="#5-1-Digit-comparison" class="headerlink" title="5.1 Digit comparison"></a>5.1 Digit comparison</h3><p>For digit comparison, it’s a bit strange, and not like the C style:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">digit comparison condition:</span><br><span class="line">-gt : greater than</span><br><span class="line">-lt : less than</span><br><span class="line">-ge : greater than <span class="keyword">or</span> equal</span><br><span class="line">-le : less than <span class="keyword">or</span> equal</span><br><span class="line">-eq : equal</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $no1 -gt <span class="number">10</span> -a $no1 -lt <span class="number">100</span> ] : <span class="number">10</span> &lt; $no1 &lt; <span class="number">100</span></span><br></pre></td></tr></table></figure></p>
+<p>While in cshell, all the comparison is C style, which leads the script-style in many forms. The <code>-a</code> stands for condition <code>and</code>, <code>-o</code> for condition <code>or</code>; </p>
+<h3 id="5-2-String-comparison"><a href="#5-2-String-comparison" class="headerlink" title="5.2 String comparison"></a>5.2 String comparison</h3><p>For string comparison, it’s C style.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[ $str1 = $str2 ]] : <span class="keyword">if</span> $str1 <span class="keyword">is</span> equal to $str2</span><br><span class="line">[[ $str1 == $str2 ]] : same <span class="keyword">as</span> above</span><br><span class="line">[[ $str1 &gt; $str2 ]] : <span class="keyword">if</span> $str1 <span class="keyword">is</span> greater than $str2</span><br><span class="line">[[ $str1 &lt; $str2 ]] : <span class="keyword">if</span> $str1 <span class="keyword">is</span> less than $str2</span><br><span class="line">[[ -z $str1 ]] : <span class="keyword">if</span> $str1 <span class="keyword">is</span> empty</span><br></pre></td></tr></table></figure></p>
+<p>Multiple conditions work together using (<code>||</code>, <code>&amp;&amp;</code>):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ $str1 = sasaki ]] &amp;&amp; [[ $str2 = nozomi ]]; then</span><br></pre></td></tr></table></figure></p>
+<p><strong>Bonus</strong>: Equal &amp; Assignment<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name=apple</span><br><span class="line">[ name = apple ]</span><br></pre></td></tr></table></figure></p>
+<p>The first one is value assignment, the second one is condition equal. In shell, spaces are mush more carefully used than any other language (well, Python is another one language that depends highly on whitespace/tab).</p>
+<h2 id="6-Parameters-of-script-and-function"><a href="#6-Parameters-of-script-and-function" class="headerlink" title="6. Parameters of script and function"></a>6. Parameters of script and function</h2><p>Much of the time, you will see commands in Linux like this, with a lot of arguments (parameter). (The difference between argument and paramenter here is not strictly emphasized, while the two differs when it comes to function).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh -exe /user/fqchen/workspace/procise -list ./regression/list/clock.list -config ./config/flow_cfg</span><br></pre></td></tr></table></figure></p>
+<p>It’s important that you can read in these parameters in your script and handle them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$1</span>          <span class="comment"># $1: the first parameter, -exe</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$2</span>          <span class="comment"># $2: the second parameter, /user/fqchen/workspace/procise</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$@</span>          <span class="comment"># $@: all the parameters</span></span><br><span class="line"><span class="built_in">echo</span> $*          <span class="comment"># $*: all the parameters (maybe different with $@)</span></span><br></pre></td></tr></table></figure></p>
+<p>Other commands that start with <code>$</code>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$? : the <span class="built_in">return</span> value of the last <span class="built_in">command</span>, 0 <span class="keyword">for</span> success, and non-zero <span class="keyword">for</span> failure</span><br></pre></td></tr></table></figure></p>
+<p>Also, it’s important to catch the parameter given to a function:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> just <span class="keyword">for</span> <span class="built_in">test</span></span><br><span class="line"><span class="keyword">function</span> foo()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$1</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$2</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$@</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>About how to get the functino name or access script parameter in a function, I’ll put these skills in the advanced tuturial. Hope I can continue with the advanced tutorial.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+            <a href="/tags/bash/" rel="tag"># bash</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/14/Git-Tutorial/" rel="next" title="Git Tutorial">
+                <i class="fa fa-chevron-left"></i> Git Tutorial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="陈富强" />
+            
+              <p class="site-author-name" itemprop="name">陈富强</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Qing-zhan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:csatchel@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/qingtianforever?is_all=1" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-google"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/profile.php?id=100004046108507" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basics"><span class="nav-number">1.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Make-shell-work"><span class="nav-number">1.1.</span> <span class="nav-text">1. Make shell work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Print-something"><span class="nav-number">1.2.</span> <span class="nav-text">2. Print something</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Variables-and-Parameters"><span class="nav-number">1.3.</span> <span class="nav-text">3. Variables and Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Double-quote-amp-Single-quote"><span class="nav-number">1.4.</span> <span class="nav-text">4. Double quote &amp; Single quote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Conditions-amp-Loops-amp-Comparison"><span class="nav-number">1.5.</span> <span class="nav-text">5. Conditions &amp; Loops &amp; Comparison</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-Digit-comparison"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 Digit comparison</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-String-comparison"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 String comparison</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Parameters-of-script-and-function"><span class="nav-number">1.6.</span> <span class="nav-text">6. Parameters of script and function</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈富强</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Utilized theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
