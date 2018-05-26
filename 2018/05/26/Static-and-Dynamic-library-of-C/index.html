@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="想要变酷的詹晴天">
 <meta property="og:description" content="FPGA I/O placement 阶段使用到的最核心的方法就是 ILP (Integer Linear Programming)，其中比较高效的两种开源包是 GLPK 和 LPSOLVE；目前软件中集成的是 GLPK，但是在某些 case 下效果并不理想，所以想要寻找一种替代的方法，于是试着使用 LPSOLVE。这中间遇到的种种问题，不可一一道来，但是总有些东西是可以写出来的。于是有了本文，也">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-26T09:49:00.872Z">
+<meta property="og:updated_time" content="2018-05-26T09:50:39.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Static and Dynamic library of C++">
 <meta name="twitter:description" content="FPGA I/O placement 阶段使用到的最核心的方法就是 ILP (Integer Linear Programming)，其中比较高效的两种开源包是 GLPK 和 LPSOLVE；目前软件中集成的是 GLPK，但是在某些 case 下效果并不理想，所以想要寻找一种替代的方法，于是试着使用 LPSOLVE。这中间遇到的种种问题，不可一一道来，但是总有些东西是可以写出来的。于是有了本文，也">
@@ -381,7 +381,7 @@
 <p>编译并运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ test.cc -L/dynamic/lib/path -lsatchel -o output</span><br><span class="line">./output</span><br></pre></td></tr></table></figure>
 <p>如果直接执行可执行文件，会出现以下报错信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: ./output: error while loading shared libraries: libsatchel.so: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: ./output: error while loading shared libraries: </span><br><span class="line">libsatchel.so: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
 <p>错误出现的原因在于：可执行文件执行时无法找到相应的动态库文件；有些人会有疑问了，编译的时候不是通过 -L -l 分别指定了路径和库文件名么，为什么执行时会报错呢？<br>这里的重点就在于编译时和执行时，正是由于动态库编译时并没有把库文件集成进可执行文件中，所以执行的时候才需要动态库文件，而执行时的搜索路径并不依赖于编译时的路径。（这也是可以理解的，编译往往在软件发布者层面，而执行是在用户层面，两者的库文件路径肯定不在同一个目录下，所以需要分别指定库文件路径。）<br>解决方法：</p>
 <ol>
 <li>把可执行文件和库文件放在同一个目录下；（虽然很蠢，但是确实是一种做法啊[捂脸]）</li>
