@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Sublime," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="想要变酷的詹晴天">
-<meta property="og:url" content="http://yoursite.com/categories/生活/index.html">
+<meta name="description" content="Under Linux, the most commonly used editor is Vim. Up until now, I’m so aware of that I only captured 1% of its full power usage. So, there is much more to learn about Vim.It may occur to you, that in">
+<meta name="keywords" content="Sublime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Toggle a file in Sublime as readonly">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/Toggle-a-file-in-Sublime-as-readonly/index.html">
 <meta property="og:site_name" content="想要变酷的詹晴天">
+<meta property="og:description" content="Under Linux, the most commonly used editor is Vim. Up until now, I’m so aware of that I only captured 1% of its full power usage. So, there is much more to learn about Vim.It may occur to you, that in">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-29T00:43:39.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="想要变酷的詹晴天">
+<meta name="twitter:title" content="Toggle a file in Sublime as readonly">
+<meta name="twitter:description" content="Under Linux, the most commonly used editor is Vim. Up until now, I’m so aware of that I only captured 1% of its full power usage. So, there is much more to learn about Vim.It may occur to you, that in">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/生活/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/29/Toggle-a-file-in-Sublime-as-readonly/"/>
 
 
 
 
 
-  <title>Category: 生活 | 想要变酷的詹晴天</title>
+  <title>Toggle a file in Sublime as readonly | 想要变酷的詹晴天</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,55 +249,183 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>生活<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/Toggle-a-file-in-Sublime-as-readonly/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈富强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想要变酷的詹晴天">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/18/关于生活的一点感悟/" itemprop="url">
-              
-                <span itemprop="name">关于生活的一点感悟</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Toggle a file in Sublime as readonly</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-18T11:30:08+08:00"
-              content="2018-03-18" >
-          03-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T08:27:46+08:00">
+                2018-05-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Under Linux, the most commonly used editor is Vim. Up until now, I’m so aware of that I only captured 1% of its full power usage. So, there is much more to learn about Vim.<br>It may occur to you, that in many cases you just want the editor ignore any changes adn prevent saving anything you accidently triggered. In vim you can just use the -M parameter:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -M test.cc</span><br></pre></td></tr></table></figure>
+<p>While under Windows, the most popular editor is, I cannot say 100%, Sublime. What if you want the same setting as in Vim when you don’t want modify the file. Note that, this is not about those files that have their read-only flag set at the OS level, but about every file that users don’t intend to modify. Well, “Just be readlly careful, and don’t press any buttons” is undoubtedly a good choice, but unintentional modification can happen every when and now.<br>In sublime, you can simply implement an easy plugin, named “Toggle the View Read-Only”. </p>
+<ol>
+<li>preferences -&gt; Package Control; (Here I assume you’ve already installed it.)</li>
+<li>Type “Install Package”;</li>
+<li>Type “Toggle the View Read-Only”;</li>
+<li>Install the plugin;</li>
+</ol>
+<p>Close Sublime and reopen it. You can set this with a mouse-click on the buffer/tab, the open file menu and on the edir-area of the buffer itself.(Right mouse click) “Toggle Read Only” option can be seen.</p>
+<p>References:</p>
+<ol>
+<li><a href="https://packagecontrol.io/packages/Toggle%20the%20View%20Read-Only" target="_blank" rel="noopener">Toggle the View Read-Only</a></li>
+<li><a href="https://forum.sublimetext.com/t/toggle-read-only-of-a-buffer/7284" target="_blank" rel="noopener">Toggle Read Only of a Buffer</a></li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Sublime/" rel="tag"># Sublime</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/27/First-half-year-of-Beijing/" rel="next" title="来到北京的半年">
+                <i class="fa fa-chevron-left"></i> 来到北京的半年
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -300,6 +433,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -553,6 +690,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
