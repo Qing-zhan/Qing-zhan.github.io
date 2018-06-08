@@ -89,7 +89,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.imgur.com/qx2wHrg.png">
 <meta property="og:image" content="https://i.imgur.com/gT8rvfX.png">
-<meta property="og:updated_time" content="2018-06-08T07:41:55.512Z">
+<meta property="og:updated_time" content="2018-06-08T07:44:15.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim Buffers">
 <meta name="twitter:description" content="IntroductionIn one of the previous posts I mentioned about the Vim buffer usage. Actually this new usage came upon with me when I was trying to set the read-only mode of sublime text. The tab phrase c">
@@ -366,7 +366,7 @@
 <p>2. Switch to another buffer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:b1	// switch to the first buffer</span><br><span class="line">:bn // switch to next buffer</span><br><span class="line">:bp // switch to previous buffer</span><br><span class="line">:b + tab // tab is used to traverse all the buffers</span><br></pre></td></tr></table></figure></p>
 <p>Actully, you can switch to another buffer by its name, even not full name, just enough to distinguish with other buffers.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:b legal</span><br><span class="line">:b ahead</span><br><span class="line">:b match</span><br></pre></td></tr></table></figure></p>
 <p>Also you can display all buffers in one window/tab by<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:ball</span><br><span class="line">:vertical ball</span><br></pre></td></tr></table></figure></p>
-<p align="center"><br><img src="https://i.imgur.com/gT8rvfX.png" width="425" height="433"><br></p>
+<p align="center"><br><img src="https://i.imgur.com/gT8rvfX.png" width="600" height="600"><br></p>
 
 <p>Then you can switch between each buffer like common splitted window (ctrl+w &amp; w);</p>
 <p>3. Buffer delete<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:bdelete 1</span><br><span class="line">:bd 1</span><br><span class="line"></span><br><span class="line">:1,3bd  // delete buffer 1 to 3 </span><br><span class="line">:bd 1 3 // delete buffer 1 and 3</span><br></pre></td></tr></table></figure></p>
