@@ -259,6 +259,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/08/Vim-Buffers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈富强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想要变酷的詹晴天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/08/Vim-Buffers/" itemprop="url">Vim Buffers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-08T14:52:40+08:00">
+                2018-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>In one of the previous posts I mentioned about the Vim buffer usage. Actually this new usage came upon with me when I was trying to set the read-only mode of sublime text. The <code>tab</code> phrase confused me at first glance, and then another <code>buffer</code> confused me more. Not until now did I realize how powerful is the buffer usage of vim is.<br>Most of the time when I am coding, several tabs under Linux terminal are opened. You can switch between them using <code>alt + [tab number]</code> under RedHat (I do not know how to do the same thing under other Linux versions, like Ubuntu). Well, the tabs can be massive and switch between them can be trivial. And voila, buffer can help you with this problem.<br>In vim, buffers are a portion of memory that’s been loaded with the contents of a file (not the original file). Nothing happens to the original file until the buffers are wirtten to it(:w). Actually it’s easy to understand the meaning of buffer literally. Like other buffer files, say .swap of Vim, buffer file of MicroSoft word, etc. The difference of them is that, the <code>buffer</code> in this post of vim refers to contents stored in memory instead of buffer files.</p>
+<h3 id="Simple-Usage"><a href="#Simple-Usage" class="headerlink" title="Simple Usage"></a>Simple Usage</h3><p>1. Display buffer list<br>First open a file using vim.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim place_legalization.cc</span><br></pre></td></tr></table></figure></p>
+<p>Open more files by typing commands below in vim.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:e place_lookahead.cc  // :edit nozomi.cc</span><br><span class="line">:e place_matching.cc // : edit satchel.cc</span><br></pre></td></tr></table></figure></p>
+<p>Also, you can add a new buffer for a file without opening it<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:badd test.cc</span><br></pre></td></tr></table></figure></p>
+<p>List all the buffers.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:ls</span><br><span class="line">:buffers</span><br></pre></td></tr></table></figure></p>
+<p align="center"><br><img src="https://i.imgur.com/qx2wHrg.png" width="" height=""><br></p>
+
+<p>The <code>#</code> denotes the previous buffer you set as active(used), <code>%</code> denotes present window, <code>a</code> denotes active.</p>
+<p>2. Switch to another buffer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:b1	// switch to the first buffer</span><br><span class="line">:bn // switch to next buffer</span><br><span class="line">:bp // switch to previous buffer</span><br><span class="line">:b + tab // tab is used to traverse all the buffers</span><br></pre></td></tr></table></figure></p>
+<p>Actully, you can switch to another buffer by its name, even not full name, just enough to distinguish with other buffers.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:b legal</span><br><span class="line">:b ahead</span><br><span class="line">:b match</span><br></pre></td></tr></table></figure></p>
+<p>Also you can display all buffers in one window/tab by<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:ball</span><br><span class="line">:vertical ball</span><br></pre></td></tr></table></figure></p>
+<p align="center"><br><img src="https://i.imgur.com/gT8rvfX.png" width="425" height="433"><br></p>
+
+<p>Then you can switch between each buffer like common splitted window (ctrl+w &amp; w);</p>
+<p>3. Buffer delete<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:bdelete 1</span><br><span class="line">:bd 1</span><br><span class="line"></span><br><span class="line">:1,3bd  // delete buffer 1 to 3 </span><br><span class="line">:bd 1 3 // delete buffer 1 and 3</span><br></pre></td></tr></table></figure></p>
+<p>4. Get help<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:help buffers</span><br></pre></td></tr></table></figure></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ol>
+<li><a href="https://medium.com/usevim/vim-101-buffers-cf22c0cc37df" target="_blank" rel="noopener">Vim 101: Buffers</a> Brief introduction</li>
+<li><a href="http://vim.wikia.com/wiki/Vim_buffer_FAQ" target="_blank" rel="noopener">Vim buffer FAQ</a> A more detailed introduction</li>
+<li><a href="http://eseth.org/2007/vim-buffers.html" target="_blank" rel="noopener">How I Learned to Stop Worrying and Love VIM Buffers</a> Some cheat tricks</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/C-98-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1767,7 +1929,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1789,7 +1951,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
