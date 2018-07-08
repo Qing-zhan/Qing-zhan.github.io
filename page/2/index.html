@@ -259,6 +259,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/Shell-Script-0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈富强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想要变酷的詹晴天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/17/Shell-Script-0/" itemprop="url">Shell Script 0</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-17T15:18:56+08:00">
+                2018-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>If you work under Linux, shell is the most fundamental tool in your toolbox. As a freshman in work and due to the poor knowledge in terms of Linux and shell, I’ll write a simplified tutorial on shell script. </p>
+<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="1-Make-shell-work"><a href="#1-Make-shell-work" class="headerlink" title="1. Make shell work"></a>1. Make shell work</h2><p>First off, create a new file suffix with .sh, e.g test.sh using <code>touch test.sh</code> in the terminal. Then add the execute permission of this file by <code>chmod +x test.sh</code>. Now you should notice that the color of this file is light green, which means it’s executable. Add the following line in the head of thif file by vim.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br></pre></td></tr></table></figure>
+<p>The notation <code>#!</code> is called shebang (sharp by # and bang by !). This line enables this script can be directly executed under terminal like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh</span><br></pre></td></tr></table></figure>
+<p>You will see a lot of this line in many scripts you download on the Internet, like Shell, Python, etc. Also, if you don’t add shebang notation in the beginning of script, you can also execute the script in a typical manner:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh test.sh</span><br><span class="line">/bin/bash test.sh</span><br></pre></td></tr></table></figure>
+<p>Also you should keep in mind is that, the shebang notation must be put in the beginning of the script. </p>
+<h2 id="2-Print-something"><a href="#2-Print-something" class="headerlink" title="2. Print something"></a>2. Print something</h2><p>The first command you should learn is print “Hello World” on your screen, just like you begin to learn any other computer language. In shell, <code>echo</code> is used to print something to the standard output, i.e. your screen</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> Hello World</span><br></pre></td></tr></table></figure>
+<p>Just put the line above in your script, and execute it. Also you can print something like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Hello World'</span></span><br></pre></td></tr></table></figure>
+<p>The double quote and single quote here is to wrap the content as a whole parameter to <code>echo</code>. The difference between double quote and single quote will be explained later.</p>
+<h2 id="3-Variables-and-Parameters"><a href="#3-Variables-and-Parameters" class="headerlink" title="3. Variables and Parameters"></a>3. Variables and Parameters</h2><p>Two important concepts is explained, variables and parameters. In shell, variables are stored as strings, even if you can assign variables with string, character literal, or digits. You don’t have to declare or define a variable in shell (While many other language need so). You can just initialize it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name=apple        <span class="comment"># initialize, Note: no extra spaces aroung =</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span>        <span class="comment"># output: apple</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;name&#125;</span>s     <span class="comment"># output: apples</span></span><br></pre></td></tr></table></figure>
+<p>Line 1 initialize a variable <code>name</code> with content <code>fqchen</code>, and when you use a variable, a dollar notation <code>$</code> should prefix it. Well, in certain circumstances, some literal are directly following the var in printing, thus a <code>{}</code> can be added to wrap the variable name. </p>
+<p>There are some environment variables which can be modified, like <code>$PATH</code>, <code>LD_LIBRARY_PATH</code>, <code>SHELL</code>, etc. It’s a little bit different when setting these variables, some are listed below:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bash:</span><br><span class="line"><span class="built_in">export</span> PATH=/home/user/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">csh:</span><br><span class="line">setenv PATH /home/user/bin/:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-Double-quote-amp-Single-quote"><a href="#4-Double-quote-amp-Single-quote" class="headerlink" title="4. Double quote &amp; Single quote"></a>4. Double quote &amp; Single quote</h2><p>Notation <code>$</code> is a build-in notation, when you want to use the <code>$</code> alone, <strong>escape character</strong> <code>\</code> can be used. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name=apple</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span>        <span class="comment"># apple</span></span><br><span class="line"><span class="built_in">echo</span> \<span class="variable">$name</span>       <span class="comment"># $name</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$name</span>"</span>      <span class="comment"># apple</span></span><br><span class="line"><span class="built_in">echo</span> `<span class="variable">$name</span>`      <span class="comment"># $name</span></span><br></pre></td></tr></table></figure>
+<p>Quoting mechanism allows otherwise special characters, such as whitespace, wildcards, parentheses, and dollar signs to be taken as literal text.<br>In double quote <code>&quot;&quot;</code> (<strong>weak quote</strong>), <code>$name</code> is expanded as a variable. In weak quote, enclosed whitespace and wildcards are taken as literals, but variables and command substitutions are still performed; While in single quote <code>&#39;&#39;</code> (<strong>strong quote</strong>), nothing is expanded, the entire string is taken as literal. This is the main difference between them.</p>
+<h2 id="5-Conditions-amp-Loops-amp-Comparison"><a href="#5-Conditions-amp-Loops-amp-Comparison" class="headerlink" title="5. Conditions &amp; Loops &amp; Comparison"></a>5. Conditions &amp; Loops &amp; Comparison</h2><p>For <code>if</code> conditions:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">--------------------</span><br><span class="line"><span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> condition; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">command</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	commands;</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>Command must suffix with a tab. Conditions are always parenthesed with <code>[]</code>, and a space must exist on both inner sides of the <code>[]</code>;  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">number=10</span><br><span class="line"><span class="built_in">echo</span> number</span><br><span class="line"><span class="keyword">if</span> [ number -gt 10 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is greater than 10</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> [ number -lt 10 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is less than 10</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'$number'</span> is equal to 10</span><br></pre></td></tr></table></figure>
+<h3 id="5-1-Digit-comparison"><a href="#5-1-Digit-comparison" class="headerlink" title="5.1 Digit comparison"></a>5.1 Digit comparison</h3><p>For digit comparison, it’s a bit strange, and not like the C style:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">digit comparison condition:</span><br><span class="line">-gt : greater than</span><br><span class="line">-lt : less than</span><br><span class="line">-ge : greater than or equal</span><br><span class="line">-le : less than or equal</span><br><span class="line">-eq : equal</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$no1</span> -gt 10 -a <span class="variable">$no1</span> -lt 100 ] : 10 &lt; <span class="variable">$no1</span> &lt; 100</span><br></pre></td></tr></table></figure>
+<p>While in cshell, all the comparison is C style, which leads the script-style in many forms. The <code>-a</code> stands for condition <code>and</code>, <code>-o</code> for condition <code>or</code>; </p>
+<h3 id="5-2-String-comparison"><a href="#5-2-String-comparison" class="headerlink" title="5.2 String comparison"></a>5.2 String comparison</h3><p>For string comparison, it’s C style.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[[ <span class="variable">$str1</span> = <span class="variable">$str2</span> ]] : <span class="keyword">if</span> <span class="variable">$str1</span> is equal to <span class="variable">$str2</span></span><br><span class="line">[[ <span class="variable">$str1</span> == <span class="variable">$str2</span> ]] : same as above</span><br><span class="line">[[ <span class="variable">$str1</span> &gt; <span class="variable">$str2</span> ]] : <span class="keyword">if</span> <span class="variable">$str1</span> is greater than <span class="variable">$str2</span></span><br><span class="line">[[ <span class="variable">$str1</span> &lt; <span class="variable">$str2</span> ]] : <span class="keyword">if</span> <span class="variable">$str1</span> is less than <span class="variable">$str2</span></span><br><span class="line">[[ -z <span class="variable">$str1</span> ]] : <span class="keyword">if</span> <span class="variable">$str1</span> is empty</span><br></pre></td></tr></table></figure>
+<p>Multiple conditions work together using (<code>||</code>, <code>&amp;&amp;</code>):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="variable">$str1</span> = sasaki ]] &amp;&amp; [[ <span class="variable">$str2</span> = nozomi ]]; <span class="keyword">then</span></span><br></pre></td></tr></table></figure>
+<p><strong>Bonus</strong>: Equal &amp; Assignment</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name=apple</span><br><span class="line">[ name = apple ]</span><br></pre></td></tr></table></figure>
+<p>The first one is value assignment, the second one is condition equal. In shell, spaces are mush more carefully used than any other language (well, Python is another one language that depends highly on whitespace/tab).</p>
+<h2 id="6-Parameters-of-script-and-function"><a href="#6-Parameters-of-script-and-function" class="headerlink" title="6. Parameters of script and function"></a>6. Parameters of script and function</h2><p>Much of the time, you will see commands in Linux like this, with a lot of arguments (parameter). (The difference between argument and paramenter here is not strictly emphasized, while the two differs when it comes to function).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh -exe /user/fqchen/workspace/procise -list ./regression/list/clock.list -config ./config/flow_cfg</span><br></pre></td></tr></table></figure>
+<p>It’s important that you can read in these parameters in your script and handle them.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$1</span>          <span class="comment"># $1: the first parameter, -exe</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$2</span>          <span class="comment"># $2: the second parameter, /user/fqchen/workspace/procise</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$@</span>          <span class="comment"># $@: all the parameters</span></span><br><span class="line"><span class="built_in">echo</span> $*          <span class="comment"># $*: all the parameters (maybe different with $@)</span></span><br></pre></td></tr></table></figure>
+<p>Other commands that start with <code>$</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$? : the <span class="built_in">return</span> value of the last <span class="built_in">command</span>, 0 <span class="keyword">for</span> success, and non-zero <span class="keyword">for</span> failure</span><br></pre></td></tr></table></figure>
+<p>Also, it’s important to catch the parameter given to a function:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> just <span class="keyword">for</span> <span class="built_in">test</span></span><br><span class="line"><span class="keyword">function</span> foo()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$1</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$2</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$@</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>About how to get the functino name or access script parameter in a function, I’ll put these skills in the advanced tuturial. Hope I can continue with the advanced tutorial.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/Git-Tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -933,7 +1118,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
