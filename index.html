@@ -259,6 +259,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/Compile-LEMON-the-graph-library/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈富强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想要变酷的詹晴天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/03/Compile-LEMON-the-graph-library/" itemprop="url">Compile LEMON the graph library</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T12:33:20+08:00">
+                2018-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="LEMON-introduction"><a href="#LEMON-introduction" class="headerlink" title="LEMON introduction"></a>LEMON introduction</h2><p>Linear Programming (<strong>LP</strong>) is widely used in placement of procise, i.e. IO placement, clock region assignment (to be opened up in procise) and Legalization. Traditional open source LP solvers used in procise includes GLPK and lpsolve, which can be time consuming and not stable. One possible alternative of lp solvers in solving LP problem is network-based methods. Netwok-based methods transform lp problem into MCF (Min Cost Flow) problem, which can be easily solved by network flow solvers, for example, network simplex, cycle canceling method. For these network-based methods, existing open source projects has gained high speed and efficiency.</p>
+<p><strong>LEMON</strong> stands for <strong>L</strong>ibrary for <strong>E</strong>fficient <strong>M</strong>odeling and <strong>O</strong>ptimization in <strong>N</strong>etworks. It is a CPP template library providing efficient implementations of common data structures and algorithms with focus on combinatorial optimization tasks connected mainly with <strong>graphs</strong> and <strong>networks</strong>. </p>
+<p>For MCF problem, LEMON contains several algorithms for this problem, including</p>
+<ul>
+<li><strong>NetworkSimplex</strong> Primal Network Simplex algorithm with various pivot strategies [Dan63], [KO91].</li>
+<li><strong>CostScaling</strong> Cost Scaling algorithm based on push/augment and relabel operations [GT90], [Gol97], [BKV98].</li>
+<li><strong>CapacityScaling Capacity</strong> Scaling algorithm based on the successive shortest path method [EK72].</li>
+<li><strong>CycleCanceling</strong> Cycle-Canceling algorithms, two of which are strongly polynomial [Kle67], [GT89].</li>
+</ul>
+<h2 id="Compile-LEMON"><a href="#Compile-LEMON" class="headerlink" title="Compile LEMON"></a>Compile LEMON</h2><p>2.1 Download LEMON</p>
+<p>Enter into lemon download page and download the latest version (lemon-1.3.1), and unzip the zipped file. lemon-1.3.1.zip (under Windows), lemon-1.3.1.tar.gz(under Linux)<br><a href="http://lemon.cs.elte.hu/trac/lemon/wiki/Downloads" target="_blank" rel="noopener">http://lemon.cs.elte.hu/trac/lemon/wiki/Downloads</a></p>
+<p>2.2 <strong>Install under Linux</strong></p>
+<p><a href="http://lemon.cs.elte.hu/trac/lemon/wiki/InstallLinux" target="_blank" rel="noopener">http://lemon.cs.elte.hu/trac/lemon/wiki/InstallLinux</a></p>
+<p>a. Install commands<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  $ <span class="built_in">cd</span> lemon-1.3.1</span><br><span class="line">  $ mkdir build</span><br><span class="line">  $ <span class="built_in">cd</span> build</span><br><span class="line">  $ cmake ..        // can be configured as described below</span><br><span class="line">  $ make</span><br><span class="line">  $ make install</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">b. Configuration:</span><br><span class="line"></span><br><span class="line">  * Install dir</span><br><span class="line">By default, lemon will be installed under /usr/<span class="built_in">local</span>, <span class="keyword">while</span> as an ordinary user with no root previlege, you can install lemon as you wish, by specifying the install dir as below:</span><br><span class="line">  ```$ cmake -DCMAKE_INSTALL_PREFIX=/usr/tools/lemon_install ..</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Compile mode</li>
+</ul>
+<p>By default, lemon will be compiled as Release mode, which is a strong recommendation. Also, you can compile under other modes, using \ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  * Compiler path</span><br><span class="line">Change the compiler to be used:  &apos;&apos;-DCMAKE_CXX_COMPILER=&lt;path to compiler&gt;&apos;&apos;</span><br><span class="line"></span><br><span class="line">**CMAKE**</span><br><span class="line"></span><br><span class="line">Cmake version 2.8.12.2 under bjcard2, however, lemon-1.3.1 need cmake version 3.0. Go to https://cmake.org/download/ download the latest version of cmake binary zip file( cmake-3.12.0-Linux-x86_64.tar.gz). cmake mentioned above is substuted using this new cmake.</span><br><span class="line"></span><br><span class="line">2.3 **Install under Windows**</span><br><span class="line"></span><br><span class="line">http://lemon.cs.elte.hu/trac/lemon/wiki/InstallCmake</span><br><span class="line"></span><br><span class="line">Since Visual Studio 2013 is the default tool used in compiling procise, open vs2012 x86 Native Tools Command Prompt, and cd into lemon-1.3.1/build (mkdir build).</span><br><span class="line">``` </span><br><span class="line">  $cmake-gui ..</span><br><span class="line">  $configure and choose Visual Studio 2013</span><br><span class="line">  $modify install dir and set GLPK&amp;Soplex etc as NO</span><br><span class="line">  $configure</span><br><span class="line">  $generate</span><br></pre></td></tr></table></figure></p>
+<p>After generate command, a LEMON.sln project file is generated under build dir. Open up and build.<br>For 64-bit build, configure cmake to Visual Studio 2013 win64. </p>
+<p><strong>Note:</strong> Under windows, lemon.lib of release version of build will induce error when building procise. Corresponding debug version of build should be choosed. However, one bug of lemon is that under debug build error like “/bigobj” is needed. Details can be found in </p>
+<p><a href="http://lemon.cs.elte.hu/trac/lemon/ticket/520" target="_blank" rel="noopener">http://lemon.cs.elte.hu/trac/lemon/ticket/520</a><br><a href="http://lemon.cs.elte.hu/trac/lemon/changeset/f05270f176d9/lemon\\" target="_blank" rel="noopener">http://lemon.cs.elte.hu/trac/lemon/changeset/f05270f176d9/lemon\\</a><br><a href="https://msdn.microsoft.com/en-us/library/8578y171.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/8578y171.aspx</a></p>
+<p>Compile option /bigobj can added from CMakeLists.txt under lemon source dir.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">164 SET(LEMON_CXX_WARNING_FLAGS $&#123;CXX_WARNING&#125; CACHE STRING &quot;LEMON warning flags.&quot;)</span><br><span class="line">165 </span><br><span class="line">166 SET(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; $&#123;LEMON_CXX_WARNING_FLAGS&#125; /bigobj&quot;)</span><br><span class="line">167 </span><br><span class="line">168 IF(MSVC)</span><br><span class="line">169   SET( CMAKE_CXX_FLAGS_MAINTAINER &quot;/WX /bigobj $&#123;CMAKE_CXX_FLAGS_DEBUG&#125;&quot; CACHE STRING</span><br><span class="line">170     &quot;Flags used by the C++ compiler during maintainer builds.&quot;</span><br><span class="line">171    )</span><br><span class="line">172   SET( CMAKE_C_FLAGS_MAINTAINER &quot;/WX /bigobj $&#123;CMAKE_CXX_FLAGS_DEBUG&#125;&quot; CACHE STRING</span><br><span class="line">173    &quot;Flags used by the C compiler during maintainer builds.&quot;</span><br><span class="line">174     )</span><br></pre></td></tr></table></figure></p>
+<h2 id="After-Install"><a href="#After-Install" class="headerlink" title="After Install"></a>After Install</h2><p>Below src code is illustrated as in procise -r 14105</p>
+<p>3.1 Include file path</p>
+<p><code>common.pri</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">164 unix:INCLUDEPATH += $$top_srcdir/reference/lemon-1.3.1/include</span><br><span class="line">171</span><br><span class="line">172 win32:INCLUDEPATH += $$top_srcdir/reference/lemon-1.3.1/include</span><br></pre></td></tr></table></figure></p>
+<p>3.2 Lib path</p>
+<p>Under Linux, release and debug version of lib will not confict. However, under windows, debug build of procise should use debug version of lib of lemon, so as release.<br>‘’src/target_common.pri’’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># lemon LIBS</span><br><span class="line">98 win32 &#123;</span><br><span class="line">99   CONFIG(debug, debug|release) &#123;</span><br><span class="line">100     LIBS += $$top_srcdir/.../lemon-1.3.1/lib$$LBITS/Debug/lemon.lib</span><br><span class="line">101   &#125; else &#123;</span><br><span class="line">102     LIBS += $$top_srcdir/.../lemon-1.3.1/lib$$LBITS/Release/lemon.lib</span><br><span class="line">103   &#125;</span><br><span class="line">104 &#125;</span><br><span class="line">105</span><br><span class="line">106 # REFERENCE LIBS</span><br><span class="line">107 unix:LIBS += -L$$top_srcdir/.../lemon-1.3.1/lib$$LBITS -lemon</span><br></pre></td></tr></table></figure>
+<p>3.3 add config.h</p>
+<p>In lemon source file, config.h doesn’t exist. Instead config.h.in. After install, under build dir, config.h is finally generated and should be added into include file of lemon.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/C-Template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1567,166 +1738,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/Toggle-a-file-in-Sublime-as-readonly/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈富强">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="想要变酷的詹晴天">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/Toggle-a-file-in-Sublime-as-readonly/" itemprop="url">Toggle a file in Sublime as readonly</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T08:27:46+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Under Linux, the most commonly used editor is Vim. Up until now, I’m so aware of that I only captured less than 1% of its full power usage. So, there is much more to learn about Vim.<br>It may occur to you, that in many cases you just want the editor ignore any changes and prevent saving anything you accidently triggered. In vim you can just use the -M parameter:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -M test.cc</span><br></pre></td></tr></table></figure>
-<p>While under Windows, the most popular editor is, I cannot say 100%, Sublime. What if you want the same setting as in Vim when you don’t want modify the file. Note that, this is not about those files that have their read-only flag set at the OS level, but about every file that users don’t intend to modify. Well, “Just be readlly careful, and don’t press any buttons” is undoubtedly a good choice, but unintentional modification can happen every when and now.<br>In sublime, you can simply implement an easy plugin, named “Toggle the View Read-Only”. </p>
-<ol>
-<li>preferences -&gt; Package Control; (Here I assume you’ve already installed it.)</li>
-<li>Type “Install Package”;</li>
-<li>Type “Toggle the View Read-Only”;</li>
-<li>Install the plugin;</li>
-</ol>
-<p>Close Sublime and reopen it. You can set this with a mouse-click on the buffer/tab, the open file menu and on the edir-area of the buffer itself.(Right mouse click) “Toggle Read Only” option can be seen.</p>
-<p>— To be leanred —</p>
-<ol>
-<li><code>buffer</code> usage in Vim;</li>
-</ol>
-<p>References:</p>
-<ol>
-<li><a href="https://packagecontrol.io/packages/Toggle%20the%20View%20Read-Only" target="_blank" rel="noopener">Toggle the View Read-Only</a></li>
-<li><a href="https://forum.sublimetext.com/t/toggle-read-only-of-a-buffer/7284" target="_blank" rel="noopener">Toggle Read Only of a Buffer</a></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1781,7 +1792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1803,7 +1814,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
