@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Academic,EDA," />
+  <meta name="keywords" content="templates," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="A brief introduction of some famous EDA labs around the world.TBD">
-<meta name="keywords" content="Academic,EDA">
+<meta name="description" content="Take awayof function templates and member functions of class templates are ordinarily put into header files.```  -- p657 of C++ Primer 5th edition12345678910111213141516171819### Template compilationW">
+<meta name="keywords" content="templates">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Famous EDA Labs">
-<meta property="og:url" content="http://yoursite.com/2018/06/13/Famous-EDA-Labs/index.html">
+<meta property="og:title" content="C++ Template">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/C-Template/index.html">
 <meta property="og:site_name" content="想要变酷的詹晴天">
-<meta property="og:description" content="A brief introduction of some famous EDA labs around the world.TBD">
+<meta property="og:description" content="Take awayof function templates and member functions of class templates are ordinarily put into header files.```  -- p657 of C++ Primer 5th edition12345678910111213141516171819### Template compilationW">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-13T12:58:19.999Z">
+<meta property="og:updated_time" content="2018-08-03T04:30:58.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Famous EDA Labs">
-<meta name="twitter:description" content="A brief introduction of some famous EDA labs around the world.TBD">
+<meta name="twitter:title" content="C++ Template">
+<meta name="twitter:description" content="Take awayof function templates and member functions of class templates are ordinarily put into header files.```  -- p657 of C++ Primer 5th edition12345678910111213141516171819### Template compilationW">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/13/Famous-EDA-Labs/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/03/C-Template/"/>
 
 
 
 
 
-  <title>Famous EDA Labs | 想要变酷的詹晴天</title>
+  <title>C++ Template | 想要变酷的詹晴天</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/Famous-EDA-Labs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/C-Template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈富强">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Famous EDA Labs</h1>
+          <h1 class="post-title" itemprop="name headline">C++ Template</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-13T20:57:02+08:00">
-                2018-06-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T12:07:47+08:00">
+                2018-08-03
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/EDA/" itemprop="url" rel="index">
-                    <span itemprop="name">EDA</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -352,7 +352,14 @@
       
 
       
-        <p>A brief introduction of some famous EDA labs around the world.<br>TBD</p>
+        <h3 id="Take-away"><a href="#Take-away" class="headerlink" title="Take away"></a>Take away</h3><figure class="highlight plain"><figcaption><span>of function templates and member functions of class templates are ordinarily put into header files.```  -- p657 of C++ Primer 5th edition</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Template compilation</span><br><span class="line">When the compiler sees the definition of a template, it does not generate code. It generates code only when we instantiate a specific instance of the template.</span><br><span class="line"></span><br><span class="line">### Example</span><br><span class="line">header file:</span><br><span class="line">```c++</span><br><span class="line">// sasaki.h</span><br><span class="line"></span><br><span class="line">template &lt;typename T&gt; </span><br><span class="line">class Base &#123;</span><br><span class="line">public:</span><br><span class="line">	Base() &#123;&#125;</span><br><span class="line">	Base(T n) &#123; n_ = n; &#125;</span><br><span class="line"></span><br><span class="line">	T add(const T&amp; v1, const T&amp; v2);</span><br><span class="line">private:</span><br><span class="line">	T n_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>source file:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sasaki.cc</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"sasaki.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T Base&lt;T&gt;::add(<span class="keyword">const</span> T&amp; v1, <span class="keyword">const</span> T&amp; v2) &#123;</span><br><span class="line">	T sum = v1 + v2;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>test file:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cc</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"sasaki.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Base&lt;<span class="keyword">int</span>&gt;* base = <span class="keyword">new</span> Base&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">	<span class="keyword">int</span> sum = base-&gt;add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Compile error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">错误	LNK1120	1 个无法解析的外部命令	ConsoleApplication1	E:\chenfuqiang\project\ConsoleApplication1\Debug\ConsoleApplication1.exe	1	</span><br><span class="line">错误	LNK2019	无法解析的外部符号 &quot;public: int __thiscall Base&lt;int&gt;::add(int const &amp;,int const &amp;)&quot; (?add@?$Base@H@@QAEHABH0@Z)，该符号在函数 _main 中被引用	ConsoleApplication1	E:\chenfuqiang\project\ConsoleApplication1\ConsoleApplication1\main.obj	1</span><br></pre></td></tr></table></figure></p>
+<h3 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h3><p>Both OOP and generic programming deal with types that are not known at the time of the program is written. The distinction between the two is that OOP deals with types that are not known until runtime, whereas in generic programming the types become known during compilation.<br>In generic programming, it’s more like macro definition (#define), certain types of code are generated based on the instantiation of template during compilation. Thus, if in main.cc only includes header file, when base-&gt;add(1, 2) is called, funtion <code>add</code> is not defined, which results to compile erros above.</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>The solution to this problem is simple enough, if you obey the rule below:</p>
+<p><code>Definitions of function templates and member functions of class templates are ordinarily put into header files.</code></p>
+<p>or, you can include both <code>sasaki.h</code> and <code>sasaki.cc</code> in main.cc.</p>
 
       
     </div>
@@ -370,9 +377,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Academic/" rel="tag"># Academic</a>
-          
-            <a href="/tags/EDA/" rel="tag"># EDA</a>
+            <a href="/tags/templates/" rel="tag"># templates</a>
           
         </div>
       
@@ -385,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/Min-Cost-Flow/" rel="next" title="Min Cost Flow">
-                <i class="fa fa-chevron-left"></i> Min Cost Flow
+              <a href="/2018/07/20/Compile-32-bit-Application-on-the-64-bit-machine/" rel="next" title="Compile 32-bit Application on the 64-bit machine">
+                <i class="fa fa-chevron-left"></i> Compile 32-bit Application on the 64-bit machine
               </a>
             
           </div>
@@ -394,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/14/Dream/" rel="prev" title="Those who have dreams are lucky">
-                Those who have dreams are lucky <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -542,6 +552,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Take-away"><span class="nav-number">1.</span> <span class="nav-text">Take away</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Details"><span class="nav-number">2.</span> <span class="nav-text">Details</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
